@@ -68,7 +68,8 @@ class AppComponent extends React.Component {
                 ],
                 topY: [0, 0]
             }
-        }
+
+        };
     }
     state = {
         imgsArrangeArr: [
@@ -85,7 +86,6 @@ class AppComponent extends React.Component {
     * @param centerIndex 指定居中排布哪个图片
     */
     rearrange(centerIndex) {
-      console.log(this.state)
         var imgsArrangeArr = this.state.imgsArrangeArr,
             Constant = this.Constant,
             centerPos = Constant.centerPos,
@@ -98,7 +98,7 @@ class AppComponent extends React.Component {
             vPosRangeX = vPosRange.x,
 
             imgsArrangeTopArr = [],
-            topImgNum = Math.floor(Math.random() * 2), //取一个 或 不取
+            topImgNum = Math.ceil(Math.random() * 2), //取一个 或 不取
             topImgSpliceIndex = 0,
 
             imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
@@ -115,9 +115,13 @@ class AppComponent extends React.Component {
         //布局上侧的图片
         imgsArrangeTopArr.map(function(value, index) {
             imgsArrangeTopArr[index] = {
+                // pos: {
+                //     top: getRangeRandom(vPosRangeTopY[0], vPosRangeTopY[1]),
+                //     left: getRangeRandom(vPosRangeX[0], vPosRangeX[1])
+                // }
                 pos: {
-                    top: getRangeRandom(vPosRangeTopY[0], vPosRangeTopY[1]),
-                    left: getRangeRandom(vPosRangeX[0], vPosRangeX[1])
+                    top: getRangeRandom(0, 0),
+                    left: getRangeRandom(0,0)
                 }
 
             };
@@ -135,7 +139,7 @@ class AppComponent extends React.Component {
 
             imgsArrangeArr[i] = {
                 pos: {
-                    top: getRangeRandom(hPosRangeY[0], hPosRangeY[1]),
+                    //top: getRangeRandom(hPosRangeY[0], hPosRangeY[1]),
                     left: getRangeRandom(hPosRangeLORX[0], hPosRangeLORX[1])
                 }
             }
@@ -155,7 +159,9 @@ class AppComponent extends React.Component {
         }.bind(this);
     }
     //图片加载后，为每张图片计算其位置范围
-    ComponentDidMount() {
+
+    componentDidMount() {
+
         //舞台大小
         let stageDOM = ReactDOM.findDOMNode(this.refs.stage),
             stageW = stageDOM.scrollWidth,
@@ -193,6 +199,7 @@ class AppComponent extends React.Component {
         var num = Math.floor(Math.random() * 6)
 
         this.rearrange(num);
+
     }
     render() {
         var controllerUnits = [],
