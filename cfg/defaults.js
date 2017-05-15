@@ -5,8 +5,8 @@
  * the base array output.
  */
 'use strict';
-
 const path = require('path');
+
 const srcPath = path.join(__dirname, '/../src');
 const dfltPort = 8000;
 
@@ -34,8 +34,8 @@ function getDefaultModules() {
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
         //loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,

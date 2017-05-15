@@ -1,0 +1,75 @@
+/* Base Application Styles */
+body {
+    background: #222;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+/* stage-start  */
+.stage {
+    position: relative;
+    width: 100%;
+    height: 680px;
+}
+/* stage-end  */
+/* img-start */
+.img-sec {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ddd;
+    @at-root {
+        .img-figure {
+            width:280px;
+            height: 320px;
+            margin:0;
+            padding: 40px;
+            overflow: hidden;
+            background-color: #fff;
+            position: absolute;
+            perspective: 1800px;
+            box-sizing: border-box;
+            img{
+              width: 90%;
+              height: 90%;
+            }
+        }
+        figcaption{
+          text-align: center;
+          .img-tlt{
+            margin:20px 0 0 0;
+            color: #a7a0a2;
+            font-size: 16px;
+          }
+        }
+    }
+}
+/*  img-end */
+/* controller-start*/
+.controller-nav {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    text-align: center;
+}
+/* controller-end*/
+.index img {
+    margin: 40px auto;
+    border-radius: 4px;
+    background: #fff;
+    display: block;
+}
+
+.index .notice {
+    margin: 20px auto;
+    padding: 15px 0;
+    text-align: center;
+    border: 1px solid #000;
+    border-width: 1px 0;
+    background: #666;
+}
