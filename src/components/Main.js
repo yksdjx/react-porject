@@ -20,7 +20,7 @@ var imageDtatas = (function genImageURL(imageDataArr) {
 })(imageDatas);
 //获取区间随机值
 function getRangeRandom(low, high) {
-    return Math.floor(Math.random() * (high - low) + low);
+    return Math.ceil(Math.random() * (high - low) + low);
 }
 
 class ImgFigure extends React.Component {
@@ -94,11 +94,11 @@ class AppComponent extends React.Component {
             hPosRangeLeftSecX = hPosRange.leftSecX,
             hPosRangeRightSecX = hPosRange.rightSecX,
             hPosRangeY = hPosRange.y,
-            vPosRangeTopY = vPosRange.TopY,
+            vPosRangeTopY = vPosRange.topY,
             vPosRangeX = vPosRange.x,
 
             imgsArrangeTopArr = [],
-            topImgNum = Math.ceil(Math.random() * 2), //取一个 或 不取
+            topImgNum = Math.floor(Math.random() * 2), // 取一个或者不取
             topImgSpliceIndex = 0,
 
             imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
@@ -109,20 +109,20 @@ class AppComponent extends React.Component {
         }
 
         //取出要布局上侧的图片状态信息
-        topImgSpliceIndex = Math.ceil(Math.random(imgsArrangeArr.length - topImgNum));
+        topImgSpliceIndex = Math.ceil(Math.random() * (imgsArrangeArr.length - topImgNum));
         imgsArrangeTopArr = imgsArrangeArr.splice(topImgSpliceIndex, topImgNum);
 
         //布局上侧的图片
         imgsArrangeTopArr.map(function(value, index) {
             imgsArrangeTopArr[index] = {
-                // pos: {
-                //     top: getRangeRandom(vPosRangeTopY[0], vPosRangeTopY[1]),
-                //     left: getRangeRandom(vPosRangeX[0], vPosRangeX[1])
-                // }
                 pos: {
-                    top: getRangeRandom(0, 0),
-                    left: getRangeRandom(0,0)
+                    top: getRangeRandom(vPosRangeTopY[0], vPosRangeTopY[1]),
+                    left: getRangeRandom(vPosRangeX[0], vPosRangeX[1])
                 }
+                // pos: {
+                //     top: getRangeRandom(0, 0),
+                //     left: getRangeRandom(0, 0)
+                // }
 
             };
         });
@@ -139,7 +139,7 @@ class AppComponent extends React.Component {
 
             imgsArrangeArr[i] = {
                 pos: {
-                    //top: getRangeRandom(hPosRangeY[0], hPosRangeY[1]),
+                    top: getRangeRandom(hPosRangeY[0], hPosRangeY[1]),
                     left: getRangeRandom(hPosRangeLORX[0], hPosRangeLORX[1])
                 }
             }
@@ -153,6 +153,7 @@ class AppComponent extends React.Component {
 
         this.setState({imgsArrangeArr: imgsArrangeArr});
     }
+
     center(index) {
         return function() {
             this.rearrange(index);
