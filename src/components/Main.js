@@ -98,15 +98,17 @@ class ControllerUnit extends React.Component {
     }
     render() {
         let controllerUnitClassName = "controller-unit";
+        let imgNum = this.key;
         //是否居中
         if(this.props.arrange.isCenter){
             controllerUnitClassName += " is-center"
+            imgNum = '';
             if(this.props.arrange.isInverse){
                 controllerUnitClassName += " is-inverse"
             }
         }
         return (
-            <span className={controllerUnitClassName} onClick={this.handleClick}></span>
+            <span className={controllerUnitClassName} onClick={this.handleClick}>{imgNum}</span>
         )
     }
 }
