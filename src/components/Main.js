@@ -57,7 +57,7 @@ class ImgFigure extends React.Component {
           //  styleObj['transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
 
         }
-        let imgFigureClassName = "img-figure";
+        var imgFigureClassName = "img-figure";
         imgFigureClassName += this.props.arrange.isInverse
             ? ' is-inverse'
             : '';
@@ -97,18 +97,16 @@ class ControllerUnit extends React.Component {
         e.preventDefault();
     }
     render() {
-        let controllerUnitClassName = "controller-unit";
-        let imgNum = this.key;
+        var controllerUnitClassName = "controller-unit";
         //是否居中
         if(this.props.arrange.isCenter){
-            controllerUnitClassName += " is-center"
-            imgNum = '';
+            controllerUnitClassName += " is-center";
             if(this.props.arrange.isInverse){
                 controllerUnitClassName += " is-inverse"
             }
         }
         return (
-            <span className={controllerUnitClassName} onClick={this.handleClick}>{imgNum}</span>
+            <span className={controllerUnitClassName} onClick={this.handleClick}></span>
         )
     }
 }
@@ -254,14 +252,14 @@ class AppComponent extends React.Component {
     componentDidMount() {
 
         //舞台大小
-        let stageDOM = ReactDOM.findDOMNode(this.refs.stage),
+        var stageDOM = ReactDOM.findDOMNode(this.refs.stage),
             stageW = stageDOM.scrollWidth,
             stageH = stageDOM.scrollHeight,
             halfStageW = Math.ceil(stageW / 2),
             halfStageH = Math.ceil(stageH / 2);
 
         //拿到一个imageFigure的大小
-        let imgFigureDOM = ReactDOM.findDOMNode(this.refs.imgFigure0),
+        var imgFigureDOM = ReactDOM.findDOMNode(this.refs.imgFigure0),
             imgW = imgFigureDOM.scrollWidth,
             imgH = imgFigureDOM.scrollHeight,
             halfImgW = Math.ceil(imgW / 2),
