@@ -57,7 +57,7 @@ class ImgFigure extends React.Component {
           //  styleObj['transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
 
         }
-        var imgFigureClassName = "img-figure";
+        var imgFigureClassName = 'img-figure';
         imgFigureClassName += this.props.arrange.isInverse
             ? ' is-inverse'
             : '';
@@ -97,12 +97,12 @@ class ControllerUnit extends React.Component {
         e.preventDefault();
     }
     render() {
-        var controllerUnitClassName = "controller-unit";
+        var controllerUnitClassName = 'controller-unit';
         //是否居中
         if(this.props.arrange.isCenter){
-            controllerUnitClassName += " is-center";
+            controllerUnitClassName += ' is-center';
             if(this.props.arrange.isInverse){
-                controllerUnitClassName += " is-inverse"
+                controllerUnitClassName += ' is-inverse'
             }
         }
         return (
